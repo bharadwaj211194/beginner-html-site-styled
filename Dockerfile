@@ -1,9 +1,5 @@
-# Use an official nginx image as base
 FROM nginx:alpine
-
-# Copy website files to the nginx default folder
-COPY . /usr/share/nginx/html
-
-# Expose port 80
-EXPOSE 80
+COPY ./ /usr/share/nginx/html
+EXPOSE 99
+CMD ["nginx", "-g", "daemon off;"]
 
