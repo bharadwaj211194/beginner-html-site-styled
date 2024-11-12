@@ -1,9 +1,18 @@
-# Use an official Nginx image from the Docker Hub
-FROM nginx:alpine
+# Use an official Node.js runtime as a parent image
+FROM node:14
 
-# Copy the website files to the Nginx server's default directory
-COPY . /usr/share/nginx/html
+# Set the working directory
+WORKDIR /usr/src/app
 
-# Expose port 80
-EXPOSE 80
+# Copy the current directory contents into the container
+COPY . .
+
+# Install any needed dependencies
+RUN npm install
+
+# Make the container's port available to the outside world
+EXPOSE 8080
+
+# Run the website
+CMD ["npm", "start"]
 
