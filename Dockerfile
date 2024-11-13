@@ -1,9 +1,9 @@
-# Use an official Nginx image as the base image
-FROM nginx:latest
+# Use an official Nginx image
+FROM nginx:alpine
 
-# Copy the website files into the Nginx container's web directory
+# Copy the static files into the Nginx server's default directory
 COPY . /usr/share/nginx/html
 
-# Expose port 80 to access the website from outside the container
+# Expose port 80 (default HTTP port)
 EXPOSE 80
 
