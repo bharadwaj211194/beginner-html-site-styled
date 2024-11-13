@@ -1,9 +1,12 @@
-# Use an official Nginx image
+# Use an official Nginx image from Docker Hub
 FROM nginx:alpine
 
-# Copy the static files into the Nginx server's default directory
+# Copy the HTML site to the Nginx container's default directory
 COPY . /usr/share/nginx/html
 
-# Expose port 80 (default HTTP port)
-EXPOSE 80
+# Expose port 99
+EXPOSE 99
+
+# Start Nginx server
+CMD ["nginx", "-g", "daemon off;"]
 
